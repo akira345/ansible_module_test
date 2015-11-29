@@ -1,0 +1,2 @@
+# ansible_module_test
+Ansibleのモジュールテスト
