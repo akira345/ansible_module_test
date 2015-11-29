@@ -1,0 +1,28 @@
+#!/usr/bin/python
+
+from ansible.module_utils.basic import *
+import platform
+
+def main():
+    module = AnsibleModule(
+        argument_spec=dict(
+            path=dict(required=False),
+        )
+    )
+    args = module.params
+
+    path = args.get('path') or '/tmp/'
+    try:
+        os = platform.linux_distribution
+        f = open(path + "os.txt","w")
+        f.write(str(os()))
+        f.close()
+
+        module.exit_json(changed=True)
+
+    except Exception as e:
+        module.fail_json(msg=str(e))
+
+if __name__ == '__main__':
+    main()
+EOF

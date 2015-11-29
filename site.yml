@@ -1,0 +1,8 @@
+---
+- hosts:
+  - all
+  tasks:
+    - name: 引数あり
+      sample: path="/home/vagrant/"
+    - name: 引数なし
+      sample:
